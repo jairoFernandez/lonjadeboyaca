@@ -1,0 +1,26 @@
+{% extends 'UsuariosBundle::backend.html.twig' %}
+{% block article %}
+    <div class="container-fluid">
+        
+        <div class="row-fluid">
+    <div class="dialog span4">
+        <div class="block">
+            <div class="block-heading">Entrar</div>
+            <div class="block-body">
+                <form>
+                    <label>Usuario</label>
+                    <input type="text" class="span12">
+                    <label>Password</label>
+                    <input type="password" class="span12">
+                    <a href="index.html" class="btn btn-primary pull-right">Entrar</a>
+                    <label class="remember-me"><input type="checkbox"> Recuérdame</label>
+                    <div class="clearfix"></div>
+                </form>
+            </div>
+        </div>
+        <p class="pull-right" style=""><a href="http://fedelonjasboyaca.com" target="blank">Página Oficial</a></p>
+        
+        <p><a href="reset-password.html">Olvidaste tu contraseña</a></p>
+    </div>
+</div>
+{% endblock %}

@@ -2,10 +2,9 @@
 
 {% block stylesheets %}
 {% stylesheets output='css/mystyle.css' filter='cssrewrite,yui_css' debug=false 
-'bundles/usuariosbundle/lib/bootstrap/css/bootstrap.css'
-'bundles/usuariosbundle/lib/bootstrap/css/bootstrap-responsive.css'
-'bundles/usuariosbundle/stylesheets/theme.css'
-'bundles/usuariosbundle/lib/font-awesome/css/font-awesome.css'
+'bundles/usuarios/lib/bootstrap/css/bootstrap.css'
+'bundles/usuarios/stylesheets/theme.css'
+'bundles/usuarios/lib/font-awesome/css/font-awesome.css'
 -%}
 <link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
 {% endstylesheets %}
@@ -20,19 +19,19 @@
                     
                     <li id="fat-menu" class="dropdown">
                         <a href="#" id="drop3" role="button" class="dropdown-toggle" data-toggle="dropdown">
-                            <i class="icon-user"></i> Jack Smith
+                            <i class="icon-user"></i> {{ app.user }}
                             <i class="icon-caret-down"></i>
                         </a>
 
                         <ul class="dropdown-menu">
-                            <li><a tabindex="-1" href="#">Settings</a></li>
+                            <li><a tabindex="-1" href="#">Configuraciones</a></li>
                             <li class="divider"></li>
-                            <li><a tabindex="-1" href="sign-in.html">Logout</a></li>
+                            <li><a tabindex="-1" href="sign-in.html">Salir del sistema</a></li>
                         </ul>
                     </li>
                     
                 </ul>
-                <a class="brand" href="index.html"><span class="first">Your</span> <span class="second">Company</span></a>
+                <a class="brand" href="index.html"><span class="first">Lonja de Propiedad </span> <span class="second">Raíz de Boyacá</span></a>
             </div>
         </div>
     </div>
@@ -44,9 +43,9 @@
             <div class="span3">
                 {# Elementos #}
                 <div class="sidebar-nav">
-                  <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>Dashboard</div>
+                  <div class="nav-header" data-toggle="collapse" data-target="#dashboard-menu"><i class="icon-dashboard"></i>Panel de Control</div>
                     <ul id="dashboard-menu" class="nav nav-list collapse in">
-                        <li><a href="index.html">Home</a></li>
+                        <li><a href="index.html">Inicio</a></li>
                         <li ><a href="users.html">Sample List</a></li>
                         <li ><a href="user.html">Sample Item</a></li>
                         <li ><a href="gallery.html">Gallery</a></li>
@@ -95,13 +94,13 @@
         
 {% block javascripts %}
 {% javascripts output='js/myscript.js' filter='yui_js' debug=false
-'bundles/usuariosbundle/lib/jquery-1.8.1.min.js'
-'bundles/usuariosbundle/lib/bootstrap/js/bootstrap.js'
-'bundles/usuariosbundle/lib/jqplot/jquery.jqplot.min.js'
-'bundles/usuariosbundle/javascripts/graphDemo.js'
-'bundles/usuariosbundle/lib/jquery-1.8.1.min.js'
-'bundles/usuariosbundle/lib/bootstrap/js/bootstrap.js'
-'bundles/usuariosbundle/lib/jqplot/jquery.jqplot.min.js'
+'bundles/usuarios/lib/jquery-1.8.1.min.js'
+'bundles/usuarios/lib/bootstrap/js/bootstrap.js'
+'bundles/usuarios/lib/jqplot/jquery.jqplot.min.js'
+'bundles/usuarios/javascripts/graphDemo.js'
+'bundles/usuarios/lib/jquery-1.8.1.min.js'
+'bundles/usuarios/lib/bootstrap/js/bootstrap.js'
+'bundles/usuarios/lib/jqplot/jquery.jqplot.min.js'
 -%}
         {# Verificar <script type="text/javascript" charset="utf-8" src="javascripts/graphDemo.js"></script>  #}
          <script src="{{ asset_url }}"></script>

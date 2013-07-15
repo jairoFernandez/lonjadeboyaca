@@ -303,4 +303,8 @@ class Usuario
     {
         return $this->tipodocumento;
     }
+    public function __toString()
+    {
+        return $this->getNombres()." ".$this->getApellidos();
+    }
 }
