@@ -1,4 +1,27 @@
-{% extends 'UsuariosBundle::backend.html.twig' %}
+{% extends '::base.html.twig' %}
+
+{% block stylesheets %}
+{% stylesheets output='css/mystyle.css' filter='cssrewrite,yui_css' debug=false 
+'bundles/usuarios/lib/bootstrap/css/bootstrap.css'
+'bundles/usuarios/stylesheets/theme.css'
+'bundles/usuarios/lib/font-awesome/css/font-awesome.css'
+-%}
+<link href="{{ asset_url }}" rel="stylesheet" type="text/css" />
+{% endstylesheets %}
+{% endblock %}
+
+{% block body -%}
+ <div class="navbar">
+        <div class="navbar-inner">
+            <div class="container-fluid">
+                <ul class="nav pull-right">
+                    
+                </ul>
+                <a class="brand" href="index.html"><span class="first">Lonja de </span> <span class="second">Propiedad raíz de Boyacá</span></a>
+            </div>
+        </div>
+    </div>
+
 {% block article %}
     <div class="container-fluid">
         
@@ -7,13 +30,18 @@
         <div class="block">
             <div class="block-heading">Entrar</div>
             <div class="block-body">
-                <form>
+                {% if error %}
+<div>{{ error.message }}</div>
+{% endif %}
+                <form action="{{ path('usuarios_login_check') }}" method="post" class="form-signin">
+                    
                     <label>Usuario</label>
-                    <input type="text" class="span12">
+                    <input type="text" id="username" name="_username" class="span12">
                     <label>Password</label>
-                    <input type="password" class="span12">
-                    <a href="index.html" class="btn btn-primary pull-right">Entrar</a>
-                    <label class="remember-me"><input type="checkbox"> Recuérdame</label>
+                    <input type="password" id="password" name="_password" class="span12">
+                    
+              <button class="btn btn-large btn-primary pull-right" type="submit">Entrar</button>
+                    <label class="remember-me"><input type="checkbox" value="_remember_me" checked> Recuérdame</label>
                     <div class="clearfix"></div>
                 </form>
             </div>
@@ -24,3 +52,19 @@
     </div>
 </div>
 {% endblock %}
+        
+{% block javascripts %}
+{% javascripts output='js/myscript.js' filter='yui_js' debug=false
+'bundles/usuarios/lib/jquery-1.8.1.min.js'
+'bundles/usuarios/lib/bootstrap/js/bootstrap.js'
+'bundles/usuarios/lib/jqplot/jquery.jqplot.min.js'
+'bundles/usuarios/javascripts/graphDemo.js'
+'bundles/usuarios/lib/jquery-1.8.1.min.js'
+'bundles/usuarios/lib/bootstrap/js/bootstrap.js'
+'bundles/usuarios/lib/jqplot/jquery.jqplot.min.js'
+-%}
+        {# Verificar <script type="text/javascript" charset="utf-8" src="javascripts/graphDemo.js"></script>  #}
+         <script src="{{ asset_url }}"></script>
+{% endjavascripts %}
+{% endblock %}
+         {% endblock %}

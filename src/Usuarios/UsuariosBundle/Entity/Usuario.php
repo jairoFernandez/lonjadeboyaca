@@ -4,6 +4,8 @@ namespace Usuarios\UsuariosBundle\Entity;
 
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
+use Symfony\Component\Validator\Constraints as Assert;
 
 
 /**
@@ -12,8 +14,9 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table()
  * @ORM\Entity
  */
-class Usuario
+class Usuario implements UserInterface, \Serializable
 {
+    
     /**
      * @var integer
      *
@@ -86,6 +89,33 @@ class Usuario
      */
     private $tipodocumento;
 
+    
+    function equals(UserInterface $usuario)
+    {
+        return $this->getLogin() == $usuario->getLogin();
+    }
+    function eraseCredentials()
+    {
+        
+    }
+    function getRoles()
+    {
+        return array($this->getRole());
+    }
+    function getUsername()
+    {
+        return $this->getEmail();
+    }
+    
+    public function serialize()
+    {
+       return serialize($this->getId());
+    }
+ 
+    public function unserialize($data)
+    {
+        $this->id = unserialize($data);
+    }
 
     /**
      * Get id
@@ -132,7 +162,7 @@ class Usuario
     
         return $this;
     }
-
+    
     /**
      * Get apellidos
      *

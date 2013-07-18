@@ -41,6 +41,16 @@ class UsuarioController extends Controller
 
         if ($form->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            //codificando el password
+            $encoder = $this->get('security.encoder_factory')
+                                ->getEncoder($entity);
+             $entity->setSalt(md5(time()));
+             $passwordCodificado = $encoder->encodePassword(
+                       $entity->getPassword(),
+                       $entity->getSalt()
+               );
+            $entity->setPassword($passwordCodificado);
+             
             $em->persist($entity);
             $em->flush();
 

@@ -1,5 +1,4 @@
 <?php
-
 namespace Usuarios\UsuariosBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
@@ -15,7 +14,7 @@ class UsuarioType extends AbstractType
             ->add('apellidos')
             ->add('email')
             ->add('password')
-            ->add('salt')
+            
             ->add('role')
             ->add('status')
             ->add('documento')
